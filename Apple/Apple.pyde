@@ -6,7 +6,26 @@ apple = loadImage('apple copy.png')
 image(apple, 0,0)
 
 noFill()
-strokeWeight(3)
+strokeWeight(0)
+
+
+#color
+fill('#00bc38')
+rect(0,190,800,100)
+fill('#ffb900')
+rect(0,290,800,100)
+fill('#ff8301')
+rect(0,390,800,100)
+fill('#ff373c')
+rect(0,490,800,100)
+fill('#ad3b9b')
+rect(0,590,800,100)
+fill('#009edf')
+rect(0,690,800,100)
+
+
+
+
 fill('#ffffff')
 beginShape()
 vertex(0,0)
@@ -58,14 +77,29 @@ bezierVertex(
              )
 endContour()
 endShape()
-
+fill('#00bc38')
 beginShape()
 vertex(370,200)
 bezierVertex(
-             520,820,
-             480,750,
-             400,750
+             360,95,
+             390,20,
+             500,20
              )
-endContour()
+bezierVertex(
+             510,130,
+             480,190,
+             370,200
+             )
 
 endShape()
+
+#circle
+fill('#FFFFFF')
+ellipse(720,420,320,320)
+
+strokeWeight(5)
+fill('#FFFFFF')
+ellipse(750,750,75,75)
+fill('#000000')
+textSize(50)
+text('R', 735,770)
