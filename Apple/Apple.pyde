@@ -12,7 +12,8 @@ beginShape()
 vertex(0,0)
 vertex(0,800)
 vertex(800,800)
-vertex(0,800)
+vertex(800,0)
+vertex (0,0)
 beginContour()
 vertex(400,750)
 bezierVertex(
@@ -56,4 +57,15 @@ bezierVertex(
              400,750
              )
 endContour()
+endShape()
+
+beginShape()
+vertex(370,200)
+bezierVertex(
+             520,820,
+             480,750,
+             400,750
+             )
+endContour()
+
 endShape()
