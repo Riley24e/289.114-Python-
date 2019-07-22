@@ -31,10 +31,10 @@ curve(100,100,400,400,500,250,500,250)
 
 stroke('#ff99ff')
 
-cp1x = 250
-cp1y = 250 
-cp2x = 250
-cp2y = 250
+cp1x = 500
+cp1y = 150 
+cp2x = 320
+cp2y = 350
 
 
 bezier(
@@ -43,3 +43,8 @@ bezier(
     cp2x,cp2y, #control point 2
     100,400 #vertex 2
 )
+
+
+stroke('#ff0000')
+line(400,100,cp1x,cp1y)
+line(100,400,cp2x,cp2y)
