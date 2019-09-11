@@ -1,6 +1,6 @@
 def setup():
     size(600,600)
-    background('#004477')
+    background(back[jk])
     wendy = createFont('wendy.ttf', 20)
     textFont(wendy)
     noStroke()
@@ -11,17 +11,20 @@ rainbow = [
      '#00FF00','#0099FF','#6633FF', '#004477',   
 ]
 
+back = ['#004477','#FF2159','#066A19','#E0B75F',
+]
+
 brushcolor = rainbow[0]
 brushshape = ROUND
 brushsize = 3
 painting = False
 paintmode = 'free'
-
+jk = 0
 def mousePressed():
     if mouseButton == LEFT:
         loop()
         
-    global brushcolor,brushshape,brushsize
+    global brushcolor,brushshape,brushsize,jk
     
     if mouseX < 30:
         if mouseY < 30:
@@ -45,6 +48,22 @@ def mousePressed():
         redraw()
     if mouseY > height - 60 and mouseX < 60:
         brushcolor = rainbow [6]
+    #back
+    
+    if mouseX < 30:
+        if mouseY < 150:
+            jk = 0
+        elif mouseY < 180:
+            jk = 1
+    elif mouseX < 60:
+        if mouseY < 150:
+            jk = 2
+        elif mouseY <180:
+            jk = 3
+            
+    
+    
+    
        
     
 def mouseReleased():
@@ -69,7 +88,7 @@ def mouseWheel(e):
 clearall = False
 
 def draw():
-    global painting, paintmode
+    global painting, paintmode,jk
     print(frameCount)
     
     if mouseX < 60:
@@ -98,6 +117,12 @@ def draw():
     fill(rainbow[4]); rect(30,30,30,30)
     fill(rainbow[5]); rect(30,60,30,30)
     
+    #background
+    fill(back[0]); rect(0,150,30,30)
+    fill(back[1]); rect(0,180,30,30)
+    fill(back[2]); rect(30,150,30,30)
+    fill(back[3]); rect(30,180,30,30)
+    
     #brush preview
     fill(brushcolor)
     if brushshape == ROUND:
@@ -106,12 +131,12 @@ def draw():
     paintmode = 'free'
     
     #clear button
-    global clearall
+    global clearall,jk
     fill('#FFFFFF')
     text('clear',10,height-12)
     
     if clearall:
-        fill('#004477')
+        fill(back[jk])
         rect(60,0,width,height)
         clearall = False
         
