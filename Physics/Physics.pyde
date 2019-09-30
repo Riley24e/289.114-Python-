@@ -25,9 +25,24 @@ def setup():
     )
     ball.create_circle_fixture(
       1, density=1.0,
+      restitution = 0.5,
       user_data = ['ball', '#FF0000']
     )
+    ball.apply_linear_impulse(impulse=(0,50),point=(20,0))
     
+    global trapezoid
+    trapezoid = world.create_dynamic_body(
+      position=(24, 40),
+      #angle = HALF_PI
+    )
+    trapezoid.create_polygon_fixture(
+      vertices = [(-1,0), (8,0), (6,6), (0,6)],
+      density = 0.1,
+      friction = 0.1,
+      user_data = ['trapezoid', '#00FF00']
+    )
+    trapezoid.apply_linear_impulse( impulse=(1,0), point=(10,10) )
+
 def draw():
     background('#004477')
     noFill()
@@ -71,6 +86,34 @@ def draw():
     stroke('#FFFFFF'); strokeWeight(3.0/10); line(0,0,0,0.8); noStroke()
     popMatrix()
     ball.apply_force_to_center(force=(5,0))
+    
+    pushMatrix()
+    fill(trapezoid.fixtures[0].user_data[1])
+    translate(trapezoid.position.x, trapezoid.position.y)
+    rotate(trapezoid.angle)
+    beginShape()
+    vertex(trapezoid.fixtures[0].shape._vertices[0].x, trapezoid.fixtures[0].shape._vertices[0].y)
+    vertex(trapezoid.fixtures[0].shape._vertices[1].x, trapezoid.fixtures[0].shape._vertices[1].y)
+    vertex(trapezoid.fixtures[0].shape._vertices[2].x, trapezoid.fixtures[0].shape._vertices[2].y)
+    vertex(trapezoid.fixtures[0].shape._vertices[3].x, trapezoid.fixtures[0].shape._vertices[3].y)
+    endShape(CLOSE)
+    popMatrix()
+    
+    #collisions
+    
+    cm = world.contact_manager
+    
+    for contact in ball.contact_list:
+        if contact.touching:
+            #print('fixture a: ' + contact.fixture_a.user_data[0])
+            #print('fixture b: ' + contact.fixture_b.user_data[0])
+            if contact.fixture_a.user_data[0] == 'ground':
+                ball.fixtures[0].user_data[1] = ground.fixtures[0].user_data[1]
+            if contact.fixture_a.user_data[0] == 'trapezoid':
+                ball.fixtures[0].user_data[1] = trapezoid.fixtures[0].user_data[1]
+            
+    
+    
     
     
     
