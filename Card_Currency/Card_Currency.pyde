@@ -6,6 +6,8 @@ AccountBallance = '$1825'
 qr = pyqrcode.create('$55654655' )
 qr.png('code.png', scale=5)
 
+
+
 def setup():
     size(1200,600,P3D)
     global num,qr,Name,DOB,Country,Bank
@@ -93,4 +95,16 @@ def draw():
     popMatrix()
     
     #black slip on bottom overlay rectanges to create barcode
+    fill('#111111')
+    rect(200,450,20,50,1,1,1,10)
+    rect(230 + random(-20,20),450,20,50)
+    rect(260+ random(-20,20),450,20,50)
+    rect(290+ random(-20,20),450,20,50)
+    rect(320+ random(-20,20),450,20,50)
+    rect(350+ random(-20,20),450,20,50)
+    rect(380+ random(-20,20),450,20,50)
+    rect(410+ random(-20,20),450,20,50)
+    rect(440+ random(-20,20),450,20,50)
+    rect(470+ random(-20,20),450,20,50)
+    rect(500+ random(-20,20),450,20,50)
     
