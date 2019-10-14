@@ -21,13 +21,23 @@ Name= 'Trevor Stewart'
 DOB= '24/03/01'
 Country= 'NZ'
 Bank='One True Bank'
+b= random(-20,20)
+c= random(-20,20)
+d= random(-20,20)
+e= random(-20,20)
+f= random(-20,20)
+g= random(-20,20)
+h= random(-20,20)
+i= random(-20,20)
+j= random(-20,20)
+k= random(-20,20)
 
     
     
 r = 0
 
 def draw():
-    global num,qr,r,ID,Name,DOB,Country,Bank
+    global num,qr,r,ID,Name,DOB,Country,Bank,b,c,d,e,f,g,h,i,j,k
     background('#004477')
     stroke('#FFFFFF')
     strokeWeight(1)
@@ -97,14 +107,14 @@ def draw():
     #black slip on bottom overlay rectanges to create barcode
     fill('#111111')
     rect(200,450,20,50,1,1,1,10)
-    rect(230 + random(-20,20),450,20,50)
-    rect(260+ random(-20,20),450,20,50)
-    rect(290+ random(-20,20),450,20,50)
-    rect(320+ random(-20,20),450,20,50)
-    rect(350+ random(-20,20),450,20,50)
-    rect(380+ random(-20,20),450,20,50)
-    rect(410+ random(-20,20),450,20,50)
-    rect(440+ random(-20,20),450,20,50)
-    rect(470+ random(-20,20),450,20,50)
-    rect(500+ random(-20,20),450,20,50)
+    rect(230 + b ,450,20,50)
+    rect(260+ c,450,20,50)
+    rect(290+ d,450,20,50)
+    rect(320+ e,450,20,50)
+    rect(350+ f,450,20,50)
+    rect(380+ g,450,20,50)
+    rect(410+ h,450,20,50)
+    rect(440+ i,450,20,50)
+    rect(470+ j,450,20,50)
+    rect(500+ k,450,20,50)
     
