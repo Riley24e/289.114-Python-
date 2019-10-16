@@ -1,16 +1,16 @@
 import png
 import pyqrcode
 
-AccountBallance = '$1825'
+AccountBallance = '$1829'
 
-qr = pyqrcode.create('$55654655' )
+qr = pyqrcode.create(AccountBallance)
 qr.png('code.png', scale=5)
 
 
 
 def setup():
     size(1200,600,P3D)
-    global num,qr,Name,DOB,Country,Bank
+    global num,qr,Name,DOB,Country,Bank,colors
     num = createFont('TurretRoad-Medium.ttf',20)
     qr = loadImage('code.png')
     
@@ -21,6 +21,7 @@ Name= 'Trevor Stewart'
 DOB= '24/03/01'
 Country= 'NZ'
 Bank='One True Bank'
+Expiry ='29/12/22'
 b= random(-20,20)
 c= random(-20,20)
 d= random(-20,20)
@@ -31,13 +32,15 @@ h= random(-20,20)
 i= random(-20,20)
 j= random(-20,20)
 k= random(-20,20)
+colors = ['#FF4D4D','#AB4DFF','#4DC2FF','#4DFF75','#F0FF4D','#AAAAAA']
+ran= int(random(0,5))
 
     
     
 r = 0
 
 def draw():
-    global num,qr,r,ID,Name,DOB,Country,Bank,b,c,d,e,f,g,h,i,j,k
+    global num,qr,r,ID,Name,DOB,Country,Bank,b,c,d,e,f,g,h,i,j,k,colors,ran,Expiry
     background('#004477')
     stroke('#FFFFFF')
     strokeWeight(1)
@@ -47,8 +50,8 @@ def draw():
     #card
 
     pushMatrix()
-    noStroke
-    fill('#cccccc')
+    noStroke()
+    fill(colors[ran])
     rect(200,100,800,400,10)
     
     fill('#ffffff')
@@ -93,6 +96,9 @@ def draw():
     #bank
     text('Bank:',295,340)
     text(Bank,350,340)
+    #expiry
+    text('Expiry Date:',295,370)
+    text(Expiry,410,370)
     
     #3d rotating icon (anti theft)
     stroke('#111111')
